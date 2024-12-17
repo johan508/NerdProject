@@ -1,58 +1,24 @@
 #!/usr/bin/env python
 # coding: utf-8
-
-# In[78]:
-
-
 # Created by Han Zhang (you can copy it but pls put my name on it, if it doesn't work for you, email me)
 import requests
 import csv
 import pandas as pd
 import matplotlib.pyplot as plt
 
-
-# In[79]:
-
-
 APP_ID = '829cd6b1'
 APP_KEY = '9d5ba1737b748d23d1c647a29527dee1'
-
-
-# In[80]:
-
 
 # Define the job to search
 WHAT = 'data%20analyst'
 
-
-# In[81]:
-
-
 # File to store results
 csv_file = 'top_companies.csv'
-
-
-# In[82]:
-
-
 url = f'https://api.adzuna.com/v1/api/jobs/ca/top_companies?app_id={APP_ID}&app_key={APP_KEY}&what={WHAT}'
-
-
-# In[83]:
-
 
 # Make the API request
 response = requests.get(url)
-
-
-# In[84]:
-
-
 response.status_code
-
-
-# In[86]:
-
 
 if response.status_code == 200:
     data = response.json()
@@ -88,10 +54,3 @@ if response.status_code == 200:
         print("DataFrame is empty or required columns are missing.")
 else:
     print("DATA WAS NOT EXTRACTED, ERROR CODE: " & response.status_code)
-
-
-# In[ ]:
-
-
-
-
